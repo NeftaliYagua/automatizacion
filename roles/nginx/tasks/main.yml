@@ -4,3 +4,9 @@
 #- name: Cargar configuración
 #  template: src=default.conf dest=/etc/nginx/conf.d/default.conf
 #  notify: restart nginx
+
+- name: Iniciar por nginx
+  ansible.builtin.service: 
+    name: nginx
+    state: started
+    enabled: yes
