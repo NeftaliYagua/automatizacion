@@ -1,11 +1,6 @@
 ---
 - name: Configurar Firewall http
-  ansible.posix.firewalld:
-    service: http
-    permanent: true
-    state: enabled
-- name: Configurar Firewall https
-  ansible.posix.firewalld:
-    service: http
-    permanent: true
-    state: enabled
+  ansible.builtin.service: 
+    name: firewalld
+    state: stopped
+    enabled: no
