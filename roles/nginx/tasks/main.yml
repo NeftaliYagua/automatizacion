@@ -1,6 +1,6 @@
 ---
 - name: Instalar servidor nginx
   dnf: name=nginx state=present
-- name: Cargar configuración
-  template: src=default.conf dest=/etc/nginx/conf.d/default.conf
-  notify: restart nginx
+#- name: Cargar configuración
+#  template: src=default.conf dest=/etc/nginx/conf.d/default.conf
+#  notify: restart nginx
