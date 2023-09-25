@@ -9,7 +9,7 @@
     service: http
     permanent: true
     state: enabled
-
+- name: Detener provisionalmente
   ansible.builtin.service: 
     name: firewalld
     state: stopped
