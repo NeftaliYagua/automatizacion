@@ -8,8 +8,6 @@
     - php-process
     - php-mysql
     - php-mbstring
-    - php enchant
-    - simplepie
 
 - name: Desactivar pila por defecto
   command: mv /etc/php-fpm.d/www.conf /etc/php-fpm.d/www.disabled creates=/etc/php-fpm.d/www.disabled
