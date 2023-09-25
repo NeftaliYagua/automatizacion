@@ -1,7 +1,8 @@
-all:
-  children:
-    website:
-      hosts:
-        - 192.168.0.11
-        - 192.168.0.12
-        - 192.168.0.13
+webservers:
+  hosts:
+    capricornio:
+      ansible_host: 192.168.0.11
+    escorpio:
+      ansible_host: 192.168.0.12
+    virgo:
+      ansible_host: 192.168.0.13
