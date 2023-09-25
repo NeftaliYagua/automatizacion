@@ -1,0 +1,4 @@
+mysql_port: 3306
+server_hostname: sandbox.coderic.net
+auto_up_disable: false
+core_update_level: true
