@@ -1,6 +1,6 @@
 ---
 - name: Instalar mysql
-  dnf: name=myqsl-server state=present
+  dnf: name=mariadb-server state=present
 
 - name: Configurar Mysql
   template: src=my.cnf dest=/etc/my.conf
