@@ -1,4 +1,11 @@
 ---
-- name: Configurar Firewall Iptables
-  copy: name=iptables-save dest=/etc/sysconfig/iptables
-  notify: restart iptables
+- name: Configurar Firewall http
+  ansible.posix.firewalld:
+    service: http
+    permanent: true
+    state: enabled
+- name: Configurar Firewall https
+  ansible.posix.firewalld:
+    service: http
+    permanent: true
+    state: enabled
