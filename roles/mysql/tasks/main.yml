@@ -2,9 +2,9 @@
 - name: Instalar mysql
   dnf: name=mariadb-server state=present
 
-- name: Configurar Mysql
-  template: src=my.cnf dest=/etc/my.conf
-  notify: restart mysql
+#- name: Configurar Mysql
+#  template: src=my.cnf dest=/etc/my.conf
+#  notify: restart mysql
 
 - name: Iniciar Mysql
   service: name=mysqld state=started enabled=yes
