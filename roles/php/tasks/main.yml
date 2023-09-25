@@ -6,7 +6,7 @@
     - php-fpm
     - php-xml
     - php-process
-    - php-mysql
+    - php-mysqlnd
     - php-mbstring
 
 - name: Desactivar pila por defecto
