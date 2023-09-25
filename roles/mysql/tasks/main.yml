@@ -4,7 +4,7 @@
 
 #- name: Configurar Mysql
 #  template: src=my.cnf dest=/etc/my.conf
-#  notify: restart mysql
+#  notify: restart mariadb
 
 - name: Iniciar Mysql
-  service: name=mysqld state=started enabled=yes
+  service: name=mariadb state=started enabled=yes
