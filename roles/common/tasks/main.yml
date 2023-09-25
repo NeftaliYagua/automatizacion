@@ -1,0 +1,4 @@
+---
+- name: Configurar Firewall Iptables
+  copy: name=iptables-save dest=/etc/sysconfig/iptables
+  notify: restart iptables

@@ -1,0 +1,20 @@
+---
+- name: Instalar servidor PHP FPM y dependencias
+  dnf: name={{ item }} state=present
+  with_items:
+    - php
+    - php-fpm
+    - php-xml
+    - php-process
+    - php-mysql
+    - php-mbstring
+    - php enchant
+    - simplepie
+
+- name: Desactivar pila por defecto
+  command: mv /etc/php-fpm.d/www.conf /etc/php-fpm.d/www.disabled creates=/etc/php-fpm.d/www.disabled
+  notify: restart php-fpm
+
+- name: Copiar configuración de PHP
+  template: src=project.conf dest=/etc/php-fpm.d/
+  notify: restart php-fpm
