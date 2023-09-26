@@ -6,6 +6,10 @@
     - tomcat-webapps
     - tomcat-admin-webapps
 
+- name: Configurar Tomcat Server
+  template: src=server.xml dest=/etc/tomcat/ owner=root group=tomcat
+  notify: restart tomcat
+
 - name: Configurar Tomcat Users
   template: src=tomcat-users.xml dest=/etc/tomcat/tomcat-users.xml owner=root group=tomcat
   notify: restart tomcat

@@ -6,6 +6,6 @@
   roles:
     - common
     - tomcat
-    - mysql
-    - php
-    - nginx
+##    - mysql
+##    - php
+##    - nginx
