@@ -13,7 +13,7 @@
   ansible.posix.firewalld:
     port: 8080/tcp
     permanent: true
-    inmediate: yes
+    immediate: yes
     zone: public
     state: enabled
 - name: Detener provisionalmente
