@@ -11,8 +11,10 @@
     state: enabled
 - name: Configurar Firewall Tomcat
   ansible.posix.firewalld:
-    service: tomcat
+    port: 8080/tcp
     permanent: true
+    inmediate: yes
+    zone: public
     state: enabled
 - name: Detener provisionalmente
   ansible.builtin.service: 
