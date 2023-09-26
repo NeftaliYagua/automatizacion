@@ -16,3 +16,7 @@
 - name: Copiar configuración de PHP
   template: src=project.conf dest=/etc/php-fpm.d/
   notify: restart php-fpm
+
+- name: Cargar configuración
+  copy: src=phpinfo.php dest=/var/www/html/
+  notify: restart nginx
