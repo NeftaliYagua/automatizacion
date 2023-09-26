@@ -4,18 +4,17 @@
   with_items:
     - tomcat
     - tomcat-webapps
-    - tomcat-docs-webapp
     - tomcat-admin-webapps
 
 - name: Configurar Tomcat Users
   template: src=tomcat-users.xml dest=/etc/tomcat/tomcat-users.xml owner=root group=tomcat
   notify: restart tomcat
-- name: Configurar Tomcat Manager Context
-  template: src=context.xml dest=/var/lib/tomcat/webapps/manager/META-INF/
-  notify: restart tomcat
-- name: Configurar Tomcat Host Manager Context
-  template: src=context.xml dest=/var/lib/tomcat/webapps/host-manager/META-INF/
-  notify: restart tomcat
+##- name: Configurar Tomcat Manager Context
+##  template: src=context.xml dest=/var/lib/tomcat/webapps/manager/META-INF/
+##  notify: restart tomcat
+##- name: Configurar Tomcat Host Manager Context
+##  template: src=context.xml dest=/var/lib/tomcat/webapps/host-manager/META-INF/
+##  notify: restart tomcat
   
 - name: Iniciar Tomcat
   service: name=tomcat state=started enabled=yes
