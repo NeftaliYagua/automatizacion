@@ -1,4 +1,31 @@
 ---
+- name: set hostname
+  hostname: name="{{ inventory_hostname }}"
+- name: restart machine
+  command: shutdown -r now "Ansible update hostname"
+  async: 0
+  poll: 0
+  ignore_errors: true
+  when: reboot is defined
+- name: Waiting for server to come back
+  local_action: wait_for host="{{ inventory_hostname }}" port=22 state=started
+
+- name: Fix /et/hosts removing the old hostname
+  tags:
+    - hosts
+  lineinfile:
+    state: present
+    dest: /etc/hosts
+    line: "{{ ansible_default_ipv4.address }} {{ inventory_hostname }} {{ ansible_hostname }}"
+    regexp: "^{{ ansible_default_ipv4.address }}"
+  when: ansible_fqdn != inventory_hostname
+
+- name: validate ansible_fqdn == inventory_hostname
+  tags:
+    - validate
+  assert:
+    that: ansible_fqdn == inventory_hostname
+
 - name: Configurar Firewall http
   ansible.posix.firewalld:
     service: http
@@ -13,11 +40,11 @@
   ansible.posix.firewalld:
     port: 8080/tcp
     permanent: true
-#    immediate: yes
+    #    immediate: yes
     zone: public
     state: enabled
 - name: Detener provisionalmente
-  ansible.builtin.service: 
+  ansible.builtin.service:
     name: firewalld
     state: stopped
     enabled: no
