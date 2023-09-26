@@ -1,10 +1,10 @@
 ---
-- name: Instalar mysql
-  dnf: name=mariadb-server state=present
+- name: Instalar Tomcat
+  dnf: name=tomcat state=present
 
 #- name: Configurar Mysql
 #  template: src=my.cnf dest=/etc/my.conf
-#  notify: restart mariadb
+#  notify: restart tomcat
 
-- name: Iniciar Mysql
-  service: name=mariadb state=started enabled=yes
+- name: Iniciar Tomcat
+  service: name=tomcat state=started enabled=yes

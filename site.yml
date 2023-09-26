@@ -2,8 +2,10 @@
 - name: "Instalar Nginx, php y mysql"
   hosts: all
   remote_user: root
+  become: true
   roles:
     - common
+    - tomcat
     - mysql
     - php
     - nginx
