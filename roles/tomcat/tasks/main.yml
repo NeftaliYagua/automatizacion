@@ -9,7 +9,6 @@
 
 - name: Configurar Tomcat Users
   template: src=tomcat-users.xml dest=/etc/tomcat/tomcat-users.xml owner=root group=tomcat
-  notify: restart tomcat
 - name: Configurar Tomcat Manager Context
   template: src=context.xml dest=/var/lib/tomcat/webapps/manager/META-INF/context.xml owner=root group=tomcat
   notify: restart tomcat
