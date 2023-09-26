@@ -1,6 +1,11 @@
 ---
 - name: Instalar Tomcat
-  dnf: name=tomcat state=present
+  dnf: name={{ item }} state=present
+  with_items:
+    - tomcat
+    - tomcat-webapps
+    - tomcat-docs-webapps
+    - tomcat-admin-webapps
 
 #- name: Configurar Tomcat
 #  template: src=my.cnf dest=/etc/my.conf
