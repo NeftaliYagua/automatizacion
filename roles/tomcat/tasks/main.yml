@@ -9,12 +9,18 @@
 - name: Configurar Tomcat Users
   template: src=tomcat-users.xml dest=/etc/tomcat/tomcat-users.xml owner=root group=tomcat
   notify: restart tomcat
+
 - name: Configurar Tomcat Manager Context
   command: sed -i -r 's/127/192/g' /var/lib/tomcat/webapps/manager/META-INF/context.xml
   notify: restart tomcat
+
+- name: Configurar Tomcat Upload size
+  command: sed -i -r 's/52428800/209715200/g' /var/lib/tomcat/webapps/manager/WEB-INF/web.xml
+  notify: restart tomcat
+
 - name: Configurar Tomcat Host Manager Context
   command: sed -i -r 's/127/192/g' /var/lib/tomcat/webapps/host-manager/META-INF/context.xml
   notify: restart tomcat
-  
+
 - name: Iniciar Tomcat
   service: name=tomcat state=started enabled=yes
