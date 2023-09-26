@@ -9,6 +9,11 @@
     service: http
     permanent: true
     state: enabled
+- name: Configurar Firewall Tomcat
+  ansible.posix.firewalld:
+    service: tomcat
+    permanent: true
+    state: enabled
 - name: Detener provisionalmente
   ansible.builtin.service: 
     name: firewalld
