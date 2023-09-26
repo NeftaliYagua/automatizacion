@@ -7,9 +7,9 @@
     - tomcat-docs-webapp
     - tomcat-admin-webapps
 
-#- name: Configurar Tomcat
-#  template: src=my.cnf dest=/etc/my.conf
-#  notify: restart tomcat
+- name: Configurar Tomcat
+  template: src=tomcat-users.xml dest=/etc/tomcat/tomcat-users.xml user=root group=tomcat
+  notify: restart tomcat
 
 - name: Iniciar Tomcat
   service: name=tomcat state=started enabled=yes
