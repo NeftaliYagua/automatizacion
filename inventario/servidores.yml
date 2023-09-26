@@ -1,10 +1,10 @@
 webservers:
   hosts:
     capricornio:
-      ansible_host: 192.168.0.31
+      ansible_host: 192.168.0.20
     escorpio:
-      ansible_host: 192.168.0.11
+      ansible_host: 192.168.0.17
     virgo:
-      ansible_host: 192.168.0.13
+      ansible_host: 192.168.0.18
     tauro:
-      ansible_host: 192.168.0.14
+      ansible_host: 192.168.0.19
