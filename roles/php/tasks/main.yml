@@ -18,5 +18,4 @@
   notify: restart php-fpm
 
 - name: Cargar configuración
-  copy: src=phpinfo.php dest=/var/www/html/
-  notify: restart nginx
+  template: src=phpinfo.php dest=/var/www/html/ owner=nginx group=nginx
