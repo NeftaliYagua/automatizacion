@@ -1,16 +1,10 @@
 ---
-- name: Configurar Firewall http
-  ansible.posix.firewalld:
-    service: http
-    permanent: true
-    state: enabled
-- name: Configurar Firewall https
-  ansible.posix.firewalld:
-    service: http
-    permanent: true
-    state: enabled
-- name: Detener provisionalmente
-  ansible.builtin.service: 
-    name: firewalld
-    state: stopped
-    enabled: no
+- name: Instalar mysql
+  dnf: name=mariadb-server state=present
+
+#- name: Configurar Mysql
+#  template: src=my.cnf dest=/etc/my.conf
+#  notify: restart mariadb
+
+- name: Iniciar Mysql
+  service: name=mariadb state=started enabled=yes
